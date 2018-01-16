@@ -27,12 +27,64 @@ main {
 	height: 100vh;
 	position: relative;
 }
+
+.details_drawer {
+	max-height: 50vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.details_drawer_columns {
+	display: inline-flex;
+	flex: 1 1 auto;
+	width: 100%;
+}
+.details_drawer_columns > div:not(last-child) {
+	border-right: 1px solid #DDCCDD;
+}
+.details_drawer_columns > div {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	padding: 8px 0px 0px 8px;
+}
+
+.details_drawer_title {
+	display: inline-flex;
+	width: 100%;
+	overflow: hidden;
+	flex: 1 0 auto;
+	height: 48px;
+	box-shadow: 0 0 5px black;
+	z-index: 1;
+}
+.details_drawer_title > div {
+	padding: 8px 8px;
+	font-size: 22px;
+}
+.details_drawer_title > div:first-child {
+	flex: 1 1 auto;
+}
+
+.plan_config_steps {
+	flex: 1 1 auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
 .documentation {
   padding: 10px;
   width: 300px;
   background-color: #3caed2;
   color: #f6f6f6;
   box-shadow: inset -6px 0px 3px -2px rgba(0, 0, 0, 0.1);
+}
+
+tr.expanded {
+	height: 10em;
+}
+tr.normal {
+	height: 32px;
 }
 
 .list_and_details {

@@ -9,9 +9,14 @@ class EList extends Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	generateTableRow(data) {
-		let output = (<TableRow onClick={this.handleClick}>
-				{this.state.headers.map((e) => <TableCell>{data[e]}</TableCell>)}
+	generateTableRow(data, idx) {
+		let output = (<TableRow id={data["id"]} key={idx} onClick={this.handleClick}>
+				{this.state.headers.map((e, i) => (<TableCell 
+					key={i}>
+					{(typeof data[e] !== "boolean") 
+						? data[e]
+						: ((data[e]) ? "Yes" : "No")}
+				</TableCell>))}
 			</TableRow>)
 		return output
 	}
@@ -24,12 +29,12 @@ class EList extends Component {
 
 	setData(data) {
 		this.setState({"data": data,
-			"headers": ["name", "regionId", "healthy"]
+			"headers": ["name", "regionId", "healthy", "plan.isActive"]
 		})
 	}
 
 	render() {
-		let list_items = this.state.data.record.map((e) => this.generateTableRow(e)),
+		let list_items = this.state.data.record.map((e, i) => this.generateTableRow(e, i)),
 			headers = this.state.headers.map((e) => <TableCell>{e}</TableCell>)
 		return (
 			<Table>
