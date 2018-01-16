@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-import List, {ListItem} from "material-ui/List"
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 class EList extends Component {
@@ -11,12 +10,14 @@ class EList extends Component {
 
 	generateTableRow(data, idx) {
 		let output = (<TableRow id={data["id"]} key={idx} onClick={this.handleClick}>
-				{this.state.headers.map((e, i) => (<TableCell 
+				{this.state.headers.map((e, i) => {
+					return (<TableCell 
 					key={i}>
 					{(typeof data[e] !== "boolean") 
-						? data[e]
+						? data[e] || <i>(field empty)</i>
 						: ((data[e]) ? "Yes" : "No")}
-				</TableCell>))}
+					</TableCell>)}
+				)}
 			</TableRow>)
 		return output
 	}
@@ -29,7 +30,7 @@ class EList extends Component {
 
 	setData(data) {
 		this.setState({"data": data,
-			"headers": ["name", "regionId", "healthy", "plan.isActive"]
+			"headers": ["name", "regionId", "healthy"]
 		})
 	}
 
