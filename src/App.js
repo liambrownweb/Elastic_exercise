@@ -14,7 +14,7 @@ import { withStyles } from 'material-ui/styles'
 import Checkbox from 'material-ui/Checkbox'
 
 import SvgIcon from 'material-ui/SvgIcon'
-import AddShoppingCartIcon from 'material-ui-icons/AddShoppingCart'
+import RemoveRedEyeIcon from 'material-ui-icons/RemoveRedEye'
 import ThumbsUpDownIcon from 'material-ui-icons/ThumbsUpDown'
 import ErrorIcon from 'material-ui-icons/Error'
 import UpdateIcon from 'material-ui-icons/Update'
@@ -151,7 +151,7 @@ class App extends Component {
 				},
 				{
 					"field": "monitoring.enabled",
-					"icon": <AddShoppingCartIcon/>,
+					"icon": <RemoveRedEyeIcon/>,
 					"sub_list": this.yes_no,
 					"tooltip": "Monitoring"
 				}
